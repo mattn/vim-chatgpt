@@ -8,7 +8,7 @@ function! s:get_channel() abort
   return s:ch
 endfunction
 
-function! s:chatgpt_callback(ch, msg) abort
+function! s:chatgpt_cb_out(ch, msg) abort
   let l:msg = json_decode(a:msg)
   let l:winid = bufwinid('__CHATGPT__')
   if l:winid ==# -1
@@ -28,9 +28,13 @@ function! s:chatgpt_callback(ch, msg) abort
   call win_execute(l:winid, 'setlocal nomodifiable nomodified', 1)
 endfunction
 
+function! s:chatgpt_cb_err(ch, msg) abort
+  echohl ErrorMsg | echom '[chatgpt ch err] ' .. a:msg | echohl None
+endfunction
+
 function! chatgpt#send(text) abort
   let l:ch = s:get_channel()
-  call ch_setoptions(l:ch, {'out_cb': function('s:chatgpt_callback')})
+  call ch_setoptions(l:ch, {'out_cb': function('s:chatgpt_cb_out'), 'err_cb': function('s:chatgpt_cb_err')})
   call ch_sendraw(l:ch, json_encode({'text': a:text}))
 endfunction
 
