@@ -1,0 +1,11 @@
+vim-chatgpt                                                  *vim-chatgpt*
+==========================================================================
+
+Commands:                                           *vim-chatgpt-commands*
+--------------------------------------------------------------------------
+
+*CodeReviewPlease*  ---  Launch a code review of current buffer.
+			 Will limit to NNNN words.
+*ChatGPT*           ---  Ask a question to ChatGPT, provide language
+
+vim:tw=78:ts=8:ft=help:norl:
