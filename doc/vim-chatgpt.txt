@@ -1,11 +1,15 @@
-vim-chatgpt                                                  *vim-chatgpt*
+vim-chatgpt.txt  {A plugin to interact with chatGPT using API}
 ==========================================================================
 
 Commands:                                           *vim-chatgpt-commands*
 --------------------------------------------------------------------------
 
 *CodeReviewPlease*  ---  Launch a code review of current buffer.
-			 Will limit to NNNN words.
-*ChatGPT*           ---  Ask a question to ChatGPT, provide language
+			 But ChatGPT will reject questions longer 
+			 than 4097 tokens on default model.
+
+*ChatGPT*           ---  Ask a question to ChatGPT. Ranges are not allowed.
+			 For example you could write
+			 :ChatGPT How do I trim a string in golang?
 
 vim:tw=78:ts=8:ft=help:norl:
