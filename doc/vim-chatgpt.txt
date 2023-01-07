@@ -1,15 +1,34 @@
 vim-chatgpt.txt  {A plugin to interact with chatGPT using API}
-==========================================================================
+
+==============================================================================
+CONTENTS                                                *vim-chatgpt-contents*
+
+    1. Requirement ...................... |vim-chatgpt-requirement|
+    2. About CLI chatgpt................. |vim-chatgpt-cli|
+    3. Settings.......................... |vim-chatgpt-settings|
+    4. Command........................... |vim-chatgpt-commands|
+
 
 Requirements                                  *vim-chatgpt-requirements*
---------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
-Needs previous installation of CLI tool https://github.com/mattn/chatgpt
+Needs previous installation of chatgpt CLI tool, see |vim-chatgpt-cli|
 
 Supported VIM versions : Vim and coming soon Neovim.
 
+
+About CLI chatgpt                                      *vim-chatgpt-cli*
+------------------------------------------------------------------------------
+
+Under the hood this plugin uses CLI chatgpt.
+See : https://github.com/mattn/chatgpt
+Model used by CLI chatGPT is currently "TextDavinci003Engine".
+This model will reject questions longer than 4097 tokens .
+See : https://beta.openai.com/docs/models/gpt-3
+
+
 Settings                                           *vim-chatgpt-settings*
---------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 "g:chatgpt_lang"  --- Allows you to set language to use for querying
                       chatGPT. Supported languages are 'ja' for Japanese.
@@ -17,12 +36,10 @@ Settings                                           *vim-chatgpt-settings*
 
 
 Commands:                                           *vim-chatgpt-commands*
---------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 *CodeReviewPlease*  ---  Launch a code review of current buffer.
-			 But ChatGPT will reject questions longer 
-			 than 4097 tokens on default model.
-
+			 There are size limitations, see |vim-chatgpt-cli|
 *ChatGPT*           ---  Ask a question to ChatGPT. Ranges are not allowed.
 			 For example you could write
 			 :ChatGPT How do I trim a string in golang?
