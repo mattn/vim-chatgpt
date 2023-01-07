@@ -1,12 +1,20 @@
 vim-chatgpt.txt  {A plugin to interact with chatGPT using API}
 ==========================================================================
 
-Requirements
+Requirements                                  *vim-chatgpt-requirements*
 --------------------------------------------------------------------------
 
 Needs previous installation of CLI tool https://github.com/mattn/chatgpt
 
 Supported VIM versions : Vim and coming soon Neovim.
+
+Settings                                           *vim-chatgpt-settings*
+--------------------------------------------------------------------------
+
+"g:chatgpt_lang"  --- Allows you to set language to use for querying
+                      chatGPT. Supported languages are 'ja' for Japanese.
+		      Other values or unset will default to English.
+
 
 Commands:                                           *vim-chatgpt-commands*
 --------------------------------------------------------------------------
