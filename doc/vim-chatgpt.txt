@@ -1,6 +1,13 @@
 vim-chatgpt.txt  {A plugin to interact with chatGPT using API}
 ==========================================================================
 
+Requirements
+--------------------------------------------------------------------------
+
+Needs previous installation of CLI tool https://github.com/mattn/chatgpt
+
+Supported VIM versions : Vim and coming soon Neovim.
+
 Commands:                                           *vim-chatgpt-commands*
 --------------------------------------------------------------------------
 
