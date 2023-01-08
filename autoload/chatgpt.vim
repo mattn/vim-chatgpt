@@ -37,7 +37,6 @@ function! s:chatgpt_cb_err(ch, msg) abort
 endfunction
 
 function! s:nvim_chatgpt_cb_out(job_id, data, event) abort
-  let l:data = json_decode(a:data)
   let l:winid = bufwinid('__CHATGPT__')
   if l:winid ==# -1
     silent noautocmd split __CHATGPT__
@@ -47,12 +46,18 @@ function! s:nvim_chatgpt_cb_out(job_id, data, event) abort
     let l:winid = bufwinid('__CHATGPT__')
   endif
   call win_execute(l:winid, 'setlocal modifiable', 1)
-  call win_execute(l:winid, 'silent normal! GA' .. l:data['text'], 1)
-  if l:data['error'] != ''
-    call win_execute(l:winid, 'silent normal! Go' .. l:data['error'], 1)
-  elseif l:data['eof']
-    call win_execute(l:winid, 'silent normal! Go', 1)
-  endif
+  for l:json_string in a:data
+    if l:json_string ==# ''
+      continue
+    endif
+    let l:data = json_decode(l:json_string)
+    call win_execute(l:winid, 'silent normal! GA' .. l:data['text'], 1)
+    if l:data['error'] != ''
+      call win_execute(l:winid, 'silent normal! Go' .. l:data['error'], 1)
+    elseif l:data['eof']
+      call win_execute(l:winid, 'silent normal! Go', 1)
+    endif
+  endfor
   call win_execute(l:winid, 'setlocal nomodifiable nomodified', 1)
 endfunction
 
