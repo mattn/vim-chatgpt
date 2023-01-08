@@ -47,3 +47,12 @@ function! chatgpt#code_review_please() abort
   \] + getline(1, '$')
   call chatgpt#send(join(l:lines, "\n"))
 endfunction
+
+function! chatgpt#generate_test_please() range
+  " Language of quetsion is not important cause chat GPT replies directly with code.
+  let l:lines = [
+  \  'Please generate test function for:',
+  \  '',
+  \] + getline(a:firstline, a:lastline)
+  call chatgpt#send(join(l:lines, "\n"))
+endfunction

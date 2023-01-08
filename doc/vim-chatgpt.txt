@@ -24,7 +24,7 @@ Under the hood this plugin uses "CLI chatgpt".
 See: https://github.com/mattn/chatgpt
 
 To configure this plugin do set environment variable "CHATGPT_API_KEY"
-to the value you can retrieve here in you account: 
+to the value you can retrieve here in you account:
 https://beta.openai.com/account/api-keys
 
 Model used by CLI chatGPT is currently "TextDavinci003Engine".
@@ -43,10 +43,19 @@ Settings                                           *vim-chatgpt-settings*
 Commands:                                           *vim-chatgpt-commands*
 ------------------------------------------------------------------------------
 
-*CodeReviewPlease*  ---  Launch a code review of current buffer.
-			 There are size limitations, see |vim-chatgpt-cli|
-*ChatGPT*           ---  Ask a question to ChatGPT. Ranges are not allowed.
+						*ChatGPT*
+:ChatGPT           ---  Ask a question to ChatGPT. Ranges are not allowed.
 			 For example you could write
 			 :ChatGPT How do I trim a string in golang?
+
+						*:CodeReviewPlease*
+:CodeReviewPlease  ---  Launch a code review of current buffer.
+			 There are size limitations, see |vim-chatgpt-cli|
+
+
+						*:PleaseGenerateTest*
+{visual}PleaseGenerateTest  --- Sends selected block of text to ChatGPT
+			 and asks for generation of code to test it.
+			 Typically used on a function.
 
 vim:tw=78:ts=8:ft=help:norl:
