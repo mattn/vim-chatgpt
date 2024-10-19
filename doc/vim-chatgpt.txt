@@ -43,9 +43,9 @@ Settings                                           *vim-chatgpt-settings*
 Commands:                                           *vim-chatgpt-commands*
 ------------------------------------------------------------------------------
 
-*CodeReviewPlease*  ---  Launch a code review of current buffer.
+*CodeReviewPleaseChatGPT*  ---  Launch a code review of current buffer.
 			 There are size limitations, see |vim-chatgpt-cli|
-*ChatGPT*           ---  Ask a question to ChatGPT. Ranges are not allowed.
+*ChatGPT*                  ---  Ask a question to ChatGPT. Ranges are not allowed.
 			 For example you could write
 			 :ChatGPT How do I trim a string in golang?
 
